@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvíz Bajnok</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+    <div class="container" id="startScreen">
+        <h1>🏆 Kvíz Bajnok</h1>
+        <p>Próbáld ki a tudásod!</p>
+
+        <input type="text" id="playerName" placeholder="Írd be a neved">
+
+        <h2>Kategória</h2>
+
+        <div class="categories">
+            <button onclick="selectCategory('tortenelem')">📜 Történelem</button>
+            <button onclick="selectCategory('foldrajz')">🌍 Földrajz</button>
+            <button onclick="selectCategory('biologia')">🧬 Biológia</button>
+            <button onclick="selectCategory('informatika')">💻 Informatika</button>
+        </div>
+
+        <h2>Nehézség</h2>
+
+        <div class="difficulty">
+            <button onclick="selectDifficulty('konnyu')">🟢 Könnyű</button>
+            <button onclick="selectDifficulty('kozepes')">🟡 Közepes</button>
+            <button onclick="selectDifficulty('nehez')">🔴 Nehéz</button>
+        </div>
+
+        <button class="start-button" onclick="startQuiz()">
+            ▶ Játék indítása
+        </button>
+    </div>
+
+
+    <div class="container quiz-container hidden" id="quizScreen">
+
+        <div class="top-bar">
+            <span id="questionNumber">1 / 10</span>
+            <span>⏱️ <span id="timer">0</span> mp</span>
+            <span>⭐ <span id="score">0</span> pont</span>
+        </div>
+
+        <h2 id="question"></h2>
+
+        <div id="answers"></div>
+
+        <button id="nextButton" class="next-button hidden" onclick="nextQuestion()">
+            Következő ➜
+        </button>
+
+    </div>
+
+
+    <div class="container hidden" id="resultScreen">
+
+        <h1>🎉 Kvíz vége!</h1>
+
+        <h2 id="resultName"></h2>
+
+        <p>✅ Helyes válaszok: <span id="correctAnswers"></span></p>
+        <p>❌ Helytelen válaszok: <span id="wrongAnswers"></span></p>
+        <p>⭐ Pontszám: <span id="finalScore"></span></p>
+        <p>⏱️ Játékidő: <span id="finalTime"></span> mp</p>
+
+        <button class="start-button" onclick="location.reload()">
+            🔄 Új játék
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
